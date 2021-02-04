@@ -1,0 +1,60 @@
+/*First message in top of website*/
+
+
+#greeting{
+	margin: 8px;
+	border: max(max(0.2vh, 0.2vw), 2px) solid #BABABA;
+	border-radius: max(max(0.65vh, 0.65vw), 7px) max(max(0.65vh, 0.65vw), 7px) 0px 0px;
+	
+	position: relative;
+	top: 0px;
+	transition: all ease 1s;
+	
+	height: auto;
+}
+
+#helloGuest{	
+	font-size: max(max(2vw, 2vh), 20px);
+	color: #3f3f3f;
+	
+	padding: max(0.5vh, 0.5vw); 
+	
+	border-bottom: max(max(0.5vh, 0.5vw), 5px) double #BABABA;
+	border-radius: max(max(0.5vh, 0.5vw), 5px) max(max(0.5vh, 0.5vw), 5px) 0px 0px;
+	
+	/opacity: 0;
+	/background-color: #DCDCDC;
+}
+
+#closeGreeting{
+	
+	content:url("./source/images/cross-0.png");
+	
+	float: right;
+	width: max(1.5vw, 10px);
+	color: gray;
+	
+	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}
+
+#info{
+	font-size: max(max(1.5vh, 1.5vw), 16px);
+	
+	padding: max(max(0.5vh, 0.5vw), 7px); 
+	background-color: #E9E9E9;
+}
+
+#dudarlogo {
+	
+	content:url("https://yt3.ggpht.com/ytc/AAUvwngO1__qQdyy65AZbpyVE0hIuqy5bWhuLGG4_wqYKA=s900-c-k-c0x00ffffff-no-rj");
+	
+	float: left;
+	margin-right: 5px;
+	
+	width: max(max(1.5vh, 1.5vw), 14px);
+	
+	outline: none;
+	border: max(max(0.2vh, 0.2vw), 2px) solid #BABABA;
+	
+	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}

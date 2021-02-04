@@ -1,0 +1,56 @@
+/*Field contains added short articles*/
+#articleList{
+	
+	/display: flex;
+	/align-items: center;
+	/overflow:hidden;
+	
+	padding: 0px;
+	margin: 0px;
+	
+	width: 100%;
+	
+	border-top: max(max(0.05vh, 0.05vw), 2px) solid #BABABA;
+	border-bottom: max(max(0.05vh, 0.05vw), 2px) solid #BABABA;
+	background-color: #E9E9E9;
+	
+}
+
+.shortArticle{
+	display: inline-block;
+	
+	padding: max(1vw, 2px);
+	margin: max(1vw, 2px);
+	
+	width: 20%;
+	/min-width: 20.6%;
+	/max-width: 20.6%;
+	
+	border: max(max(0.05vh, 0.05vw), 2px) solid #BABABA;
+	border-radius: max(max(0.05vh, 0.05vw), 2px);
+	
+	background-color: white;	
+	
+	text-align: left;
+}
+
+.articleTitle{
+	font-size: max(max(1.2vh, 1.2vw), 13px);
+	font-weight: bold;
+}
+
+.articleShortText{
+	padding-top: 5px;
+	border-top: 2px solid black;
+	font-size: max(max(1vh, 1vw), 12px);
+}
+
+.articleShortImage{
+	
+	display: inline-block;
+	margin-top: 5px;
+	width: 98%;
+	border: 2px solid black;
+ 
+	font-size: max(max(1vh, 1vw), 12px);
+}

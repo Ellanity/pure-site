@@ -1,0 +1,114 @@
+/*Form contains all button elements*/
+.fieldImageArticleForm{
+	display:flex;
+	font-size: max(max(1vh, 1vw), 7px);
+	position: relative;
+}
+
+/* Input field, make it 0 size,  */
+/* and give Label opportunity to */
+/* process events(such as click))*/
+.fieldImageArticle{
+
+	width: 0px;
+	height: 0px;
+	
+	outline: none;
+	
+	overflow: hidden;
+	opacity: 0;
+	z-index: -1;
+}
+
+/* Decorations consist of Label and Icon */
+.fieldImageArticleDecorations{
+}
+
+/* Element which                        */
+/* > contains text "Upload image"       */
+/* > can process events                 */
+/* > has biggest part of button's style */
+.fieldImageArticleLabel{
+	
+	position: relative;
+	
+	width: max(10vw, 56px);
+	height: max(max(2vh, 2vw), 20px);
+	
+	border: 2px solid black;
+	border-radius: 4px;
+	
+	background-color: white;
+	
+	overflow: hidden;
+	
+	padding-right: 1%;
+	
+	display: flex!important;
+	align-items: center;
+	justify-content: center;
+	
+	-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none;
+	-moz-user-select: none; -ms-user-select: none; user-select: none; 
+}
+
+/* button Icon class */
+.fieldImageArticleIcon{
+	
+	content: url("./source/images/upload.png");
+	width: max(0.6vw, 6px);
+	
+	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}
+
+/* This things will happend,   */
+/* if user focuses on button   */
+/* > everuthing become lighter */
+.fieldImageArticleLabel:hover{
+    
+	border-color: #7b7b7b;
+	color: #7b7b7b;
+}
+.fieldImageArticleLabel:hover .fieldImageArticleIcon{
+	
+	opacity: 0.6;
+}
+/* > shadow with click */
+.fieldImageArticleLabel:active{
+    
+	box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+
+
+
+/* After the user has uploaded the image  */
+/* it's name is displayed                 */
+
+
+
+/*Uploaded image alert*/
+.uploadedImageField{
+	
+	font-size: max(max(1vh, 1vw), 7px);
+	
+	width: max(30vw, 150px);
+	height: max(max(2vh, 2vw), 20px);
+	
+	overflow: hidden;
+	
+	display: flex!important;
+	align-items: center;
+	justify-content: left;
+}
+.uploadedImageName{
+	
+}
+.uploadedImageIco{
+	content: url("./source/images/check-mark.png");
+	width: max(0.7vw, 6px);
+	margin-right: 5px;
+	margin-left: 3px;
+	
+	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}

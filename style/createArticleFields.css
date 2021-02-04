@@ -1,0 +1,65 @@
+#site{
+	padding: 0px;
+	margin: 0px;
+	
+	position: relative;
+	top: 0px;
+	transition: all ease 1s;
+}
+
+/*Fields to make new Article*/
+#ArticleTable{
+	
+	margin-top: 5px;	
+	margin-left: 4px;
+	display: inline-block;
+}
+#fieldTitleArticle{
+
+	display: flex;
+	flex-direction: column;
+
+	padding-left: 5px;
+	
+	float: bottom;
+	width: 26vw;
+	height: max(3vh, 16px);
+	resize: none;
+	
+	border: 2px solid black;
+	font-size: max(max(1.2vh, 1.2vw), 13px);
+	font-family: calibril;
+	font-weight: bold;
+}
+#fieldTextArticle{
+
+	padding: 5px;
+	
+	margin-top: max(1vh, 5px);
+	
+	width: 40vw;
+	height: max(16vh, 25px);
+	resize: none;
+	
+	border: 2px solid black;
+	font-size: max(max(1vh, 1vw), 12px);
+}
+.buttonArticle{
+	
+	margin-left: 5px;
+	
+	height: max(10.7vh, 26px);
+	width: max(10vw, 60px);
+	
+	/border-radius: max(max(0.5vh, 0.5vw), 2px);
+	outline: none;
+	
+	background-color: #DCDCDC;
+	
+	font-size: max(max(1.5vh, 1.5vw), 8px);
+	font-family: calibril;
+	text-align: center;	
+	
+	/*border-top: max(max(0.2vh, 0.2vw), 2px) solid #BABABA;
+	box-shadow:0 1px 3px #5e5d5b;*/
+}
