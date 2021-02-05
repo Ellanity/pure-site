@@ -8,91 +8,128 @@
 		<link rel="shortcut icon" href="./style/source/images/newspaper.ico" type="x-icon">
 		
 		<link rel="stylesheet" href="./style/global.css">
+		<link rel="stylesheet" href="./style/header.css">
+		<link rel="stylesheet" href="./style/topMenu.css">
 		<link rel="stylesheet" href="./style/greeting.css">
 		<link rel="stylesheet" href="./style/createArticleFields.css">
 		<link rel="stylesheet" href="./style/uploadImage.css">
 		<link rel="stylesheet" href="./style/shortArticles.css">
+		<link rel="stylesheet" href="./style/footer.css">
 		
 	</head>
 	
 	<body>
-		<div class = "header"></div>
-		<div id = "site">
-			<div id = "greeting">
-				<div id = "helloGuest">
-					Hello, guest!
-					<input id = "closeGreeting" type="image" alt = "X">
+		<div class = "site">
+		
+			<div id = "header">
+				
+				<div id = "headerSlider">
+					<div class = "slide" id = "slide1"></div>
+					<div class = "slide" id = "slide2"></div>
 				</div>
 				
-				<div id = "info">
-					<img id = "dudarlogo" alt = "X">
-					Everything you see on this site is made by me solely in order to learn front development [pure js, css, html]
-				</div>
-			</div>
-			
-			<div>
-				<table>
-					<tbody id = "ArticleTable">
-						<tr>
-							<td rowspan = "2">
-								<input id = "fieldTitleArticle" type = "text" placeholder = "Title of new article" maxlength = "40">
-								<textarea id = "fieldTextArticle" placeholder = "Text of new article" maxlength = "2000"></textarea>
-							</td>
-							<td>
-								<input id = "buttonAdd" class = "buttonArticle" type="button" value = "New Article">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input id = "buttonClear" class = "buttonArticle" type="button" value = "Clear">
-							</td>
-						</tr>
-						<tr>
-							<td colspan = "2">
-							
-								<div class = "fieldImageArticleForm">
+				<div id = "menu">
+					<img id = "menuIco" alt="Logo">
+
+					<table>
+						<tbody>
+							<tr>
+								<td id = "menuLeft">
+									
+									<button class = "menuButton">Contacts</button>
+									<button class = "menuButton">More posts</button>
+									<button class = "menuButton">Sponsors</button>
+								</td>
 								
-									<label class = "fieldImageArticleLabel" for = "fieldImageArticleOne">
-										<div class = "fieldImageArticleDecorations">
-											<img class = "fieldImageArticleIcon" alt="no" text = "Upload Image">
-											<text>Upload image</text>
+								<td id = "menuRight">
+									<button id = "buttonSubscribe" class = "menuButton">Subscribe</button>
+									<button id = "buttonSignIn"    class = "menuButton">Sign in</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div id = "fieldsContainer">
+				
+					<div id = "greeting">
+						<div id = "helloGuest">
+							Hello, guest!
+							<input id = "closeGreeting" type="image" alt = "X">
+						</div>
+						
+						<div id = "info">
+							<img id = "dudarlogo" alt = "X">
+							Everything you see on this site is made by me solely in order to learn front development [pure js, css, html]
+						</div>
+					</div>
+					
+					<div id = "createArticleHere">
+						<table id = "createArticleHereTable">
+							<tbody id = "ArticleTable">
+								<tr>
+									<td>
+										<input id = "fieldTitleArticle" type = "text" placeholder = "Title of new article" maxlength = "40">
+										<textarea id = "fieldTextArticle" placeholder = "Text of new article" maxlength = "2000"></textarea>
+									</td>
+									<td>
+										<input id = "buttonAdd" class = "buttonArticle" type="button" value = "New Article">
+										<input id = "buttonClear" class = "buttonArticle" type="button" value = "Clear">
+									</td>
+								</tr>
+								<tr>
+									<td colspan = "2">
+									
+										<div class = "fieldImageArticleForm">
+										
+											<label class = "fieldImageArticleLabel" for = "fieldImageArticleOne">
+												<div class = "fieldImageArticleDecorations">
+													<img class = "fieldImageArticleIcon" alt="no" text = "Upload Image">
+													<text>Upload image</text>
+												</div>
+											</label>
+											
+											<input id = "fieldImageArticleOne" class="fieldImageArticle" type="file" value = "upload">
+											
 										</div>
-									</label>
-									
-									<input id = "fieldImageArticleOne" class="fieldImageArticle" type="file" value = "upload">
-									
-								</div>
-								
-								<div class = "uploadedImageField">
-								</div>
-								
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>	
-			
-			
-			<div id = "articleList">
+										
+										<div class = "uploadedImageField"></div>
+										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 				
 			</div>
-			
+				
+			<div id = "articleList"></div>
 			
 			<noscript>
-				<div>
-					<script type = "text/javascript">
-						alert("Unable to load JavaScript. Allow the use of JavaScript in your browser.");
-					</script>
-				<div>
+					<div>
+						<script type = "text/javascript">
+							alert("Unable to load JavaScript. Allow the use of JavaScript in your browser.");
+						</script>
+					</div>
 			</noscript>
 			
 			<div id = "js">
-				<script src = "./script/greeting.js"></script>
-				<script src = "./script/articleForm.js"></script>
-				<script src = "./script/uploadImage.js"></script>
+					<script src = "./script/greeting.js"></script>
+					<script src = "./script/articleForm.js"></script>
+					<script src = "./script/uploadImage.js"></script>
+					<script src = "./script/headerBackImages.js"></script>
 			</div>
-			
+				
+				
 		</div>
+		
+		<div class = "footer">
+			<div class = "footerContainer">
+				footer
+			</div>
+		</div>
+			
 	</body>
 	
 </html>

@@ -1,16 +1,18 @@
 /*First message in top of website*/
 
-
 #greeting{
 	margin: 8px;
+
 	border: max(max(0.2vh, 0.2vw), 2px) solid #BABABA;
-	border-radius: max(max(0.65vh, 0.65vw), 7px) max(max(0.65vh, 0.65vw), 7px) 0px 0px;
+	border-radius: 7px 7px 7px 7px;
 	
 	position: relative;
 	top: 0px;
 	transition: all ease 1s;
 	
 	height: auto;
+	
+	opacity: 1;
 }
 
 #helloGuest{	
@@ -20,10 +22,10 @@
 	padding: max(0.5vh, 0.5vw); 
 	
 	border-bottom: max(max(0.5vh, 0.5vw), 5px) double #BABABA;
-	border-radius: max(max(0.5vh, 0.5vw), 5px) max(max(0.5vh, 0.5vw), 5px) 0px 0px;
+	border-radius: 4px 4px 0px 0px;
 	
-	/opacity: 0;
-	/background-color: #DCDCDC;
+	/z-index: -1;
+	background-color: #ffffff;
 }
 
 #closeGreeting{
@@ -31,17 +33,25 @@
 	content:url("./source/images/cross-0.png");
 	
 	float: right;
-	width: max(1.5vw, 10px);
+	width: max(2vw, 15px);
 	color: gray;
 	
+	outline:none;
+	
 	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}
+
+#closeGreeting:hover{
+	content:url("./source/images/cross.png");
 }
 
 #info{
 	font-size: max(max(1.5vh, 1.5vw), 16px);
 	
 	padding: max(max(0.5vh, 0.5vw), 7px); 
-	background-color: #E9E9E9;
+	background-color: #8689a6;
+	
+	border-radius: 0px 0px 4px 4px;
 }
 
 #dudarlogo {
