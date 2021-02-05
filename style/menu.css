@@ -1,0 +1,76 @@
+/*global menu design*/
+.menu{
+	/*display higher than other elements*/
+	position: relative;
+	z-index: 1;
+	
+	padding: 8px;
+	background-color: #292f47;
+	border-bottom: 2px solid white;
+	
+	align-items: center;
+}
+
+.menuContainer{
+	width: 100%;
+	display: flex;
+}
+
+.tablePartLeft{
+}
+
+.tablePartCenter{
+	display: flex;
+	justify-content: flex-start;
+	width: 80vw;
+}
+
+.tablePartRight{
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+/*button design*/
+#menuIco{
+	
+	content: url(./source/images/newspaper.png);
+	width: max(min(6vw, 6vh), 30px);
+}
+
+.menuButton{
+	
+	margin: 0px max(min(0.5vh, 0.5vw), 3px) 0px max(min(0.5vh, 0.5vw), 3px);
+	padding: max(max(0.5vw, 0.5vh), 5px);
+	
+	border: 2px solid white;
+	border-radius: max(max(0.5vw, 0.5vh), 6px);
+	outline: none;
+
+	font-family: calibril;
+	font-size: max(max(1.5vh, 1.5vw), 10px);
+	
+	color: white;
+	background-color: transparent;
+	
+	align-items: center;
+	justify-content: center;	
+}
+
+.menuButton:hover{
+	
+	border: 2px solid #dedede;
+	color: #dedede;
+}
+
+#buttonSignIn{
+	min-width: 44px;
+}
+
+#buttonSubscribe{
+	background-color: #88bd85;
+}
+#buttonSubscribe:hover{
+	color: #5e5e5e;
+	border-color: #5e5e5e;
+}

@@ -10,7 +10,6 @@ let arrayShortArticles = new Array();
 buttonClear.onclick = clear;
 buttonAdd.onclick   = createShortArticle;
 
-
 /*Clear all fields of article form*/
 function clear()
 {
@@ -26,6 +25,19 @@ function clear()
 	}
 };
 
+/*
+function shortArticle()
+{
+	let article = 
+	{
+		aTitle: textProcessing(fieldTitle.value),
+		aText:  textProcessing(fieldText.value),
+		aId:    quantityArticles,
+		
+	}
+	quantityArticles--;
+	return article;
+}*/
 
 /*Short version of full article*/
 function createShortArticle()

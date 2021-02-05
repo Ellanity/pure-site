@@ -56,7 +56,7 @@
 	margin: 6px;	
 	margin-top: 0px;	
 	
-	height: max(min(5vh, 4vw), 20px);
+	height: max(min(5vh, 4vw), 50px);
 	min-width: max(10vw, 80px);
 	
 	border: 2px solid black;

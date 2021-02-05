@@ -8,8 +8,8 @@
 		<link rel="shortcut icon" href="./style/source/images/newspaper.ico" type="x-icon">
 		
 		<link rel="stylesheet" href="./style/global.css">
+		<link rel="stylesheet" href="./style/menu.css">
 		<link rel="stylesheet" href="./style/header.css">
-		<link rel="stylesheet" href="./style/topMenu.css">
 		<link rel="stylesheet" href="./style/greeting.css">
 		<link rel="stylesheet" href="./style/createArticleFields.css">
 		<link rel="stylesheet" href="./style/uploadImage.css">
@@ -28,31 +28,26 @@
 					<div class = "slide" id = "slide2"></div>
 				</div>
 				
-				<div id = "menu">
-					<img id = "menuIco" alt="Logo">
-
-					<table>
-						<tbody>
-							<tr>
-								<td id = "menuLeft">
-									
-									<button class = "menuButton">Contacts</button>
-									<button class = "menuButton">More posts</button>
-									<button class = "menuButton">Sponsors</button>
-								</td>
-								
-								<td id = "menuRight">
-									<button id = "buttonSubscribe" class = "menuButton">Subscribe</button>
-									<button id = "buttonSignIn"    class = "menuButton">Sign in</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+				<div class = "menu">
+					<div class = "menuContainer">
+						<div class = "tablePartLeft">
+							<img id = "menuIco" alt="Logo">
+						</div>
+						<div class = "tablePartCenter">
+							<button class = "menuButton">Contacts</button>
+							<button class = "menuButton">More posts</button>
+							<button class = "menuButton">Sponsors</button>
+						</div>
+						<div class = "tablePartRight">
+							<button id = "buttonSubscribe" class = "menuButton">Subscribe</button>
+							<button id = "buttonSignIn"    class = "menuButton">Sign in</button>
+						</div>
+					</div>
 				</div>
 				
 				<div id = "fieldsContainer">
 				
-					<div id = "greeting">
+					<!--<div id = "greeting">
 						<div id = "helloGuest">
 							Hello, guest!
 							<input id = "closeGreeting" type="image" alt = "X">
@@ -62,7 +57,7 @@
 							<img id = "dudarlogo" alt = "X">
 							Everything you see on this site is made by me solely in order to learn front development [pure js, css, html]
 						</div>
-					</div>
+					</div>-->
 					
 					<div id = "createArticleHere">
 						<table id = "createArticleHereTable">
@@ -79,7 +74,6 @@
 								</tr>
 								<tr>
 									<td colspan = "2">
-									
 										<div class = "fieldImageArticleForm">
 										
 											<label class = "fieldImageArticleLabel" for = "fieldImageArticleOne">
@@ -88,13 +82,16 @@
 													<text>Upload image</text>
 												</div>
 											</label>
-											
-											<input id = "fieldImageArticleOne" class="fieldImageArticle" type="file" value = "upload">
-											
+											<input id = "fieldImageArticleOne" class="fieldImageArticle" type="file" value = "upload" multiple="multiple">
+										
+										</div>	
+									</td>
+								</tr>
+								<tr>
+									<td colspan = "2">
+										<div class = "uploadedImageField">
+											<div class = "uploadedImageFieldContainer"></div>
 										</div>
-										
-										<div class = "uploadedImageField"></div>
-										
 									</td>
 								</tr>
 							</tbody>
@@ -105,29 +102,30 @@
 			</div>
 				
 			<div id = "articleList"></div>
-			
-			<noscript>
-					<div>
-						<script type = "text/javascript">
-							alert("Unable to load JavaScript. Allow the use of JavaScript in your browser.");
-						</script>
-					</div>
-			</noscript>
-			
-			<div id = "js">
-					<script src = "./script/greeting.js"></script>
-					<script src = "./script/articleForm.js"></script>
-					<script src = "./script/uploadImage.js"></script>
-					<script src = "./script/headerBackImages.js"></script>
-			</div>
-				
-				
+						
 		</div>
 		
 		<div class = "footer">
 			<div class = "footerContainer">
 				footer
 			</div>
+		</div>
+		
+		<noscript>
+			<div>
+				<script type = "text/javascript">
+					alert("Unable to load JavaScript. Allow the use of JavaScript in your browser.");
+				</script>
+			</div>
+		</noscript>
+		
+		<div id = "js">
+			
+			<script src = "./script/article.js"></script>
+			<!--<script src = "./script/articleForm.js"></script>
+			<script src = "./script/greeting.js"></script>
+			<script src = "./script/uploadImage.js"></script>
+			<<script src = "./script/headerBackImages.js"></script>-->
 		</div>
 			
 	</body>
