@@ -25,7 +25,7 @@
 	padding-left: 5px;
 	
 	/float: bottom;
-	width: 26vw;
+	width: 30vw;
 	height: max(3vh, 16px);
 	resize: none;
 	
@@ -64,7 +64,7 @@
 	
 	background-color: rgba(255,255,255,0.7);
 	 
-	font-size: max(max(1.3vh, 1.3vw), 8px);
+	font-size: max(max(1.3vh, 1.3vw), 14px);
 	/font-size: max(max(1vh, 1vw), 8px);
 	font-family: calibril;
 	font-weight: bold;

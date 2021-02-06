@@ -3,8 +3,6 @@
 */
 /*
 */
-/*
-*/
 let fieldImage  = document.getElementById("fieldImageArticleOne");
 
 let uploadedImageFieldContainers = document.querySelectorAll('.uploadedImageFieldContainer');
@@ -44,9 +42,9 @@ function createUploadedImagesFields()
 		/*make name shorter*/
 		let fileName = uploadedImagesList[fileNum].name;
 		let file = "";
-		if (fileName.length > 20)
+		if (fileName.length > 50)
 		{
-			for(let i = 0; i < 20; i++)
+			for(let i = 0; i < 50; i++)
 				file += fileName[i];
 			file += "...";
 		}
@@ -56,7 +54,7 @@ function createUploadedImagesFields()
 		/*create html for field*/
 		let imageUploadedHTML = (
 		"<div>" + 
-			"<img class = \"uploadedImageIco\" alt = \"Y\">" +
+			//"<img class = \"uploadedImageIco\" alt = \"Y\">" +
 			file + 
 			"<label class = \"uploadedImageDelIco\">" + 
 				"<input type = \"submit\" class = \"uploadedImageDel\">" +
@@ -90,8 +88,7 @@ function uploadNewImages()
 {
 	let fileNum = 0;
 	for (fileNum = 0; fileNum < fieldImage.files.length; fileNum++)
-	{
-			
+	{		
 		if(fileQuantity < 10)
 		{
 			let fileType =  fieldImage.files[fileNum].type;
@@ -108,15 +105,7 @@ function uploadNewImages()
 }
 /*
 */
-/*
-*/
-/*
-*/
 /*Delete uploaded images*/
-/*
-*/
-/*
-*/
 /*
 */
 function deleteImage(imageToDelete)
@@ -124,7 +113,7 @@ function deleteImage(imageToDelete)
 	let uploadedImagesListNew = new Array;
 	
 	let idChar = imageToDelete.id[17];
-	imageToDelete.parentNode.removeChild(imageToDelete);
+	//imageToDelete.parentNode.removeChild(imageToDelete);
 
 	let id = Number.parseInt(idChar, 10)
 
@@ -144,34 +133,20 @@ function deleteImage(imageToDelete)
 		uploadedImagesList[fileNum] = uploadedImagesListNew[fileNum];
 	}
 	
-	let atext = "";
-	for(let i = 0; i < fileQuantity; i++)
-	{
-		atext += uploadedImagesList[i].name + " " + uploadedImagesListNew[i].name + "\n";
-	}
-	alert(atext);
-
-
 	createUploadedImagesFields();
 }
-
 /*
 */
 /*
 */
-/*
-*/
-/*Create article, add it on the site*/
-/*
-*/
+/*Create article, add it on the site, create articles buttons*/
 /*
 */
 /*
 */
-/*Clear all fields of article form*//*
+/*Clear all fields of article form*/
 let fieldText   = document.getElementById("fieldTextArticle");
 let fieldTitle  = document.getElementById("fieldTitleArticle");
-let articleList = document.getElementById("articleList");
 
 function clear()
 {
@@ -181,14 +156,69 @@ function clear()
 		fieldTitle.value = "";
 		fieldImage.value = "";
 		
-		let uploadedImages =  document.querySelectorAll('.uploadedImageName')  /* get all elements on site *//*
-		let uploadedImage = uploadedImages[0]; 								   /* with this css selector   *//*
-		uploadedImage.parentNode.removeChild(uploadedImage);
+		uploadedImagesList.splice(0, uploadedImagesList.length);
+		fieldImage.reset;
+		fileQuantity = 0;
+		uploadNewImages();
 	}
 };
+/*
+*/
+/*Creating article (object, with all specifications)*/
+/*
+*/
+let articleArray = new Array;
+let articleList = document.getElementById("articleList");
+let articleQuantity = 0;
+
+/*or better to use class? 0w0*/
+function Article()
+{
+	this.titleArticle = fieldTitle;
+	this.textAritcle = fieldText;
+	this.imageArticle = new Array;
+	for(let i = 0; i < fileQuantity; i++)
+	{
+		imageArticle[i] = uploadedImagesList[i];
+	}
+}
+
+function createArticleFull(article)
+{
+	articleList[articleQuantity] = article;
+	articleQuantity++;
+}
+
+function diaplayArticleFull(article)
+{
+	
+}
+
+function createArticleShort(article)
+{
+	alert("short article");
+}
+
+function createArticle()
+{
+	if (fieldTitle.value != 0 && fieldText.value != 0)
+	{
+		let newArticle = new Article();
+		createArticleShort(newArticle);
+		createArticleFull(newArticle);
+	}
+}
 
 /*
-/*Short version of full article*//*
+*/
+/*
+*/
+/*
+/*Short version of full article*/
+/*
+*/
+/*
+*//*
 function createShortArticle()
 {
 
@@ -249,8 +279,8 @@ function textProcessing(form_text) {
 	return new_pattern;
 }
 
+*/
 
-
+  buttonAdd.onclick = createArticle;
 buttonClear.onclick = clear;
- /* buttonAdd.onclick = createShortArticle;*/
-fieldImage.onclick = function() {fieldImage.onchange = uploadNewImages;};
+ fieldImage.onclick = function() {fieldImage.onchange = uploadNewImages;};
