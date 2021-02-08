@@ -1,8 +1,4 @@
 /*Creating and uploading images*/
-/*
-*/
-/*
-*/
 let fieldImage  = document.getElementById("fieldImageArticleOne");
 
 let uploadedImageFieldContainers = document.querySelectorAll('.uploadedImageFieldContainer');
@@ -11,19 +7,8 @@ let uploadedImageFieldContainer  = uploadedImageFieldContainers[0];
 let uploadedImagesList = new Array;
 let fileQuantity = 0;
 
-/*function matchFilesArrayToObject()
-{
-	fieldImage.reset;
-	for (let fileNum = 0; fileNum < fileQuantity; fileNum++)
-	{
-		fieldImage.files[fileNum] = uploadedImagesList[fileNum];
-	}
-}*/
-
 function createUploadedImagesFields()
 {
-	//matchFilesArrayToObject();
-
 	/*clear container with fields*/
 	uploadedImageFieldContainer.innerHTML = "";
 	
@@ -54,11 +39,11 @@ function createUploadedImagesFields()
 		/*create html for field*/
 		let imageUploadedHTML = (
 		"<div>" + 
-			//"<img class = \"uploadedImageIco\" alt = \"Y\">" +
 			file + 
-			"<label class = \"uploadedImageDelIco\">" + 
-				"<input type = \"submit\" class = \"uploadedImageDel\">" +
-			"</label>" +
+			//"<label class = \"uploadedImageDelIco\">" + 
+			//	"<input type = \"submit\" class = \"uploadedImageDel\">" +
+			//"</label>" +
+			"<img class = \"uploadedImageDelIco\" alt = \"X\">" + 
 		"</div>"
 		);
 		
@@ -135,15 +120,13 @@ function deleteImage(imageToDelete)
 	
 	createUploadedImagesFields();
 }
-/*
-*/
-/*
-*/
+
+
+
+
 /*Create article, add it on the site, create articles buttons*/
-/*
-*/
-/*
-*/
+
+
 /*Clear all fields of article form*/
 let fieldText   = document.getElementById("fieldTextArticle");
 let fieldTitle  = document.getElementById("fieldTitleArticle");
@@ -167,120 +150,238 @@ function clear()
 /*Creating article (object, with all specifications)*/
 /*
 */
+let containerArray = new Array;
+let containerQuantity = 0;
+
+
+function addContainer()
+{
+	let container = document.createElement('div');
+	container.className = "articlesContainer";
+	container.id = ("articlesContainer-" + containerQuantity);
+	
+	articleList.append(container);
+	containerQuantity++;
+}
+
 let articleArray = new Array;
-let articleList = document.getElementById("articleList");
+let shortArticleArray = new Array;
+let fullArticleArray = new Array;
+
 let articleQuantity = 0;
 
 /*or better to use class? 0w0*/
 function Article()
 {
-	this.titleArticle = fieldTitle;
-	this.textAritcle = fieldText;
+	this.id = articleQuantity;
+	this.container = 0;
+	this.titleArticle = fieldTitle.value;
+	this.textArticle  = textProcessing(fieldText.value);
 	this.imageArticle = new Array;
 	for(let i = 0; i < fileQuantity; i++)
 	{
-		imageArticle[i] = uploadedImagesList[i];
-	}
-}
-
-function createArticleFull(article)
-{
-	articleList[articleQuantity] = article;
-	articleQuantity++;
-}
-
-function diaplayArticleFull(article)
-{
-	
-}
-
-function createArticleShort(article)
-{
-	alert("short article");
-}
-
-function createArticle()
-{
-	if (fieldTitle.value != 0 && fieldText.value != 0)
-	{
-		let newArticle = new Article();
-		createArticleShort(newArticle);
-		createArticleFull(newArticle);
-	}
-}
-
-/*
-*/
-/*
-*/
-/*
-/*Short version of full article*/
-/*
-*/
-/*
-*//*
-function createShortArticle()
-{
-
-	if (fieldText.value != "" && fieldTitle.value != "")
-	{
-		/* edit the text in a shorter and with */
-		/* the presence of line breaks         *//*
-		let bigText = textProcessing(fieldText.value);
-		let smallText = "";
-		if (bigText.files.length > 200)
-		{
-			let i = 0;
-			while ((i < 200 ||  bigText[i] != ' ') && 
-				   (i < 80  || (bigText[i] != '.'  && bigText[i] != '!' && bigText[i] != '?' )))
-			{
-				smallText += bigText[i];
-				i++;
-			}
-			smallText += "...";
-		}
-		else
-			smallText = bigText;	
-		
-		let imgId = ("articleShortImage" + quantityArticles);
-		
-		let article = document.createElement('div');
-		article.className = "shortArticle";
-		article.id = ("shortArticle-" + quantityArticles);
-		article.innerHTML = (
-			"<div class = \"articleTitle\">    " +  fieldTitle.value  + "</div>" + 
-			"<div class = \"articleShortText\">" +         smallText  + "</div>" + 
-			"<img class = \"articleShortImage\" id = \"" +      imgId  + "\" alt = \"no pictures\">"
-		);
-		
-		try
-		{
-			let fileReader = new FileReader();
-			fileReader.readAsDataURL(fieldImage.files[0]);
-			fileReader.onload = function(event)
-			{
-				let img = document.getElementById(imgId);
-				img.src = event.target.result;
-			}
-		}
-		catch{}
-		
-		articleList.append(article);
-		arrayShortArticles[quantityArticles] = article;
-		quantityArticles++;
+		this.imageArticle[i] = uploadedImagesList[i];
 	}
 }
 
 /* the createon of line breaks and spaces in text        */
-/* '\n' => '<br>' && '<br><br>' => '<br>' && '__' => '_' *//*
-function textProcessing(form_text) {
+/* '\n' => '<br>' && '<br><br>' => '<br>' && '__' => '_' */
+function textProcessing(form_text)
+{
     let pattern = /\r\n|\r|\n/g;
     let new_pattern = form_text.replace(/\ {2,}/g, ' ').replace(/(\r\n|\r|\n){2,}/g, "<br><br>").replace(/(\r\n|\r|\n)/g, "<br>").split('<br><br>').join ("\n\n");
 	return new_pattern;
 }
 
-*/
+/**/
+function displayArticleFull(article)
+{
+	
+}
 
-  buttonAdd.onclick = createArticle;
+function deleteArticle(article)
+{
+	if(confirm("Are you sure, you want delete this post?")){
+		id = article.id;
+		let articleArrayNew = new Array;
+
+		for(articleNum = 0; articleNum < articleQuantity; articleNum++)
+		{
+			if(articleNum < id)
+				articleArrayNew[articleNum] = articleArray[articleNum];
+			else
+				articleArrayNew[articleNum] =  articleArray[articleNum + 1];
+		}
+		articleQuantity--;
+
+		articleArray.splice(0, articleArray.length);
+		for(let articleNum = 0; articleNum < articleQuantity; articleNum++)
+		{
+			articleArray[articleNum] = articleArrayNew[articleNum];
+		}
+		
+		for(let articleNum = 0; articleNum < articleQuantity; articleNum++)
+		{
+			articleArray[articleNum].id = articleNum;
+		}
+		displayShortArticle();
+	}
+}
+
+
+/*Short version of full article*/
+function createArticleShort(article)
+{
+	title = article.titleArticle;
+	
+	let longText  = article.textArticle;
+	let shortText = "";
+	if (longText.length > 200)
+	{
+		let i = 0;
+		while ((i < 200 ||  longText[i] != ' ') && 
+			   (i < 80  || (longText[i] != '.'  && longText[i] != '!' && longText[i] != '?' )))
+		{
+			shortText += longText[i];
+			i++;
+		}
+		shortText += "...";
+	}
+	else
+		shortText = longText;	
+	
+	let articleObj = document.createElement('div');
+	articleObj.className = "shortArticle";
+	articleObj.id = ("shortArticle-" + article.id);
+	
+	let imgId = ("articleShortImage-" + article.id);
+	articleObj.innerHTML = (
+		"<div class = \"articleTitle\">    " + title  + "</div>" + 
+		"<div class = \"articleShortText\">" + shortText  + "</div>" + 
+		"<img class = \"articleShortImage\" id = \"" + imgId  + "\" alt = \"no pictures :(\">" + 
+		"<div class = \"articleShortDelContainer\">" +
+			"<img class = \"articleShortDel\" id = \"articleShortDel-" + article.id + "\"alt = \"X\">" + 
+		"</div>"
+	);
+	
+	try
+	{
+		let fileReader = new FileReader();
+		fileReader.readAsDataURL(article.imageArticle[0]);
+		fileReader.onload = function(event)
+		{
+			let img = document.getElementById(imgId);
+			img.src = event.target.result;
+		}
+	}
+	catch{}
+		
+	let container = document.getElementById(("articlesContainer-" + article.container));
+	container.prepend(articleObj);
+
+	del = document.getElementById(("articleShortDel-" + article.id));
+	
+	del.addEventListener('click', function(){deleteArticle(article)});
+}
+
+/*start this func if user want to create new article*/
+function createArticle()
+{
+	if (fieldTitle.value != 0 && fieldText.value != 0)
+	{
+		let newArticle = new Article();
+		articleArray[articleQuantity] = newArticle;
+		articleQuantity++;
+		displayShortArticle();
+	}
+}
+
+let page = 0;
+
+function displayShortArticle()
+{
+	articleList.innerHTML = "";
+	containerQuantity = 0;
+	page = 0;
+		
+	for(let articleNum = 0; articleNum < articleQuantity; articleNum++)
+	{
+		articleArray[articleNum].container = Math.floor((articleQuantity - articleArray[articleNum].id - 1)/4);
+	}
+	for (let containerNum = 0; containerNum <= articleArray[0].container; containerNum++)
+		addContainer();
+	
+	if(containerQuantity <= 1)
+	{
+		buttonNext.style.display = 'none';
+		buttonPrevious.style.display = 'none';
+	}
+	if(containerQuantity > 1)
+	{
+		if (page > 0)
+			buttonPrevious.style.display = '';
+		if (page < containerQuantity - 1)
+			buttonNext.style.display = '';
+		if (page <= 0)
+			buttonPrevious.style.display = 'none';
+		if (page >= containerQuantity - 1)
+			buttonNext.style.display = 'none';
+	}
+	
+	for(let articleNum = 0; articleNum < articleQuantity; articleNum++)
+	{
+		createArticleShort(articleArray[articleNum]);
+	}
+	
+}
+
+
+function nextPage(){
+	let width = articleList.offsetWidth;
+	let containers = document.querySelectorAll(".articlesContainer");
+	for (let containerNum = 0; containerNum < containers.length; containerNum++)
+	{
+		let posPx = containers[containerNum].style.left;
+		let pos = posPx.replace(/px/, "");
+		if(posPx == "")
+			pos = 0;
+		containers[containerNum].style.left = (parseInt(pos, 10) - width) + 'px';	
+	}
+	page++;
+	if (page >= containers.length - 1)
+		buttonNext.style.display = 'none';
+	if (page > 0)
+		buttonPrevious.style.display = '';
+}
+
+function previousPage(){
+	let width = articleList.offsetWidth;
+	let containers = document.querySelectorAll(".articlesContainer");
+	for (let containerNum = 0; containerNum < containers.length; containerNum++)
+	{
+		let posPx = containers[containerNum].style.left;
+		let pos = posPx.replace(/px/, "");
+		if(posPx == "")
+			pos = 0;
+		containers[containerNum].style.left = (parseInt(pos, 10) + width) + 'px';
+	}
+	page--;
+	if(page <= 0)
+		buttonPrevious.style.display = 'none';
+	if(page < containers.length)
+		buttonNext.style.display = '';
+}
+
+if(containerQuantity <= 1)
+{
+	buttonNext.style.display = 'none';
+	buttonPrevious.style.display = 'none';
+}
+
+/*actions with buttons in article form*/
+buttonAdd.onclick = createArticle;
 buttonClear.onclick = clear;
- fieldImage.onclick = function() {fieldImage.onchange = uploadNewImages;};
+fieldImage.onclick = function() {fieldImage.onchange = uploadNewImages;};
+/*articles list*/
+buttonNext.onclick = nextPage;
+buttonPrevious.onclick = previousPage;

@@ -33,7 +33,7 @@
 	position: relative;
 	
 	min-width: max(10vw, 56px);
-	height: max(max(2vh, 2vw), 20px);
+	height: max(max(3vh, 2.2vw), 20px);
 	
 	border: 2px solid black;
 	border-radius: 4px;
@@ -57,7 +57,7 @@
 .fieldImageArticleIcon{
 	
 	content: url("./source/images/upload.png");
-	width: max(0.6vw, 6px);
+	width: max(0.6vw, 10px);
 }
 
 /* This things will happend,   */
@@ -129,7 +129,7 @@
 .uploadedImageIco{
 
 	content: url("./source/images/check-mark.png");
-	width: max(0.8vw, 6px);
+	width: max(0.8vw, 10px);
 	margin: 0 5px 0 3px;
 	
 	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
@@ -144,7 +144,7 @@
 	content: url("./source/images/red-cross.png");
 	margin: 0 5px 0 5px;
 	
-	width: max(0.8vw, 6px);
+	width: max(0.8vw, 10px);
 	
 	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
 }

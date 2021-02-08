@@ -2,13 +2,13 @@
 #articleList{
 	
 	display: flex;
-	align-items: center;
-	overflow:hidden;
+	
+	overflow: hidden;
 	
 	padding: 0px;
 	margin: 0px;
 	
-	width: 100%;
+	max-width: 100vw;
 	
 	border-top: max(max(0.05vh, 0.05vw), 2px) solid black;
 	border-bottom: max(max(0.05vh, 0.05vw), 2px) solid black;
@@ -17,24 +17,30 @@
 	
 }
 
-.shortArticle{
-	display: inline-block;
+.articlesContainer{
+	position: relative;
+	left: 0px;
+	transition: all ease 1s;
 	
-	margin: auto;
-	
-	padding: max(0.5vw, 2px);
-	margin: max(1vw, 2px);
-	
-	min-width: 20.6%;
-	max-width: 20.6%;
-	
-	border: 1px solid white;
-	
-	background-color: white;	
-	
-	text-align: left;
+	min-width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
+
+.shortArticle{
+
+	padding: max(0.5vw, 2px);
+	margin: max(1%, 2px);
+	
+	width: 24%;
+	
+	/border: 1px solid black;
+	
+	background-color: white;	
+	text-align: left;
+}
 .articleTitle{
 	
 	/margin: max(1vw, 2px) max(1vw, 2px) 0px max(1vw, 2px);
@@ -44,21 +50,86 @@
 	align-items: center;
 	justify-content: center;
 }
-
 .articleShortText{
 	
 	padding-top: 5px;
 	border-top: 2px solid black;
 	font-size: max(max(1vh, 1vw), 12px);
 }
-
 .articleShortImage{
 	
 	display: inline-block;
 	margin-top: 5px;
-	/width: 98%;
 	width: 100%;
 	/border: 1px solid black;
  
 	font-size: max(max(1vh, 1vw), 12px);
 }
+.articleShortDelContainer{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	padding: 2px;
+}
+.articleShortDel{
+	content: url("./source/images/bin.png");
+	width: 15px;
+	-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}
+.articleShortDel:hover{
+	content: url("./source/images/bin-light.png");
+}
+
+
+
+
+
+.buttonsArticleListContainer{
+	
+	padding: 8px;
+	/background-color: #292f47;
+	/border-bottom: 2px solid white;
+	
+	display: flex!important;
+	align-items: center;
+	justify-content: center;	
+}
+.buttonsArticleList{
+	margin: 0px max(min(0.5vh, 0.5vw), 3px) 0px max(min(0.5vh, 0.5vw), 3px);
+	padding: max(max(0.5vw, 0.5vh), 5px);
+	
+	border: 2px solid black;
+	border-radius: max(max(0.5vw, 0.5vh), 6px);
+	outline: none;
+
+	font-family: calibril;
+	font-size: max(max(1.5vh, 1.5vw), 10px);
+	
+	color: black;
+	background-color: transparent;
+	
+	/align-items: center;
+	/justify-content: center;	
+	
+	width: max(10vw, 10vh);
+	min-width: 48px;
+}
+.buttonsArticleList:hover{
+	border: 2px solid #87839C;
+	color: #87839C;
+}/*
+.buttonNextIcon{
+	content: url("./source/images/arrow.png");
+	width: max(max(1.2vh, 1.2vw), 12px);
+}
+.buttonPreviousIcon{
+	content: url("./source/images/arrow.png");
+	width: max(max(1.2vh, 1.2vw), 12px);
+	transform: scale(-1, 1) 
+}
+.buttonNextIcon:hover{
+	content: url("./source/images/arrow-light.png");
+}
+.buttonPreviousIcon:hover{
+	content: url("./source/images/arrow-light.png");
+}*/
