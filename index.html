@@ -13,7 +13,8 @@
 		<link rel="stylesheet" href="./style/greeting.css">
 		<link rel="stylesheet" href="./style/createArticleFields.css">
 		<link rel="stylesheet" href="./style/uploadImage.css">
-		<link rel="stylesheet" href="./style/shortArticles.css">
+		<link rel="stylesheet" href="./style/shortArticle.css">
+		<link rel="stylesheet" href="./style/fullArticle.css">
 		<link rel="stylesheet" href="./style/footer.css">
 		
 	</head>
@@ -64,8 +65,8 @@
 							<tbody id = "ArticleTable">
 								<tr>
 									<td>
-										<input id = "fieldTitleArticle" type = "text" placeholder = "Title of new article" maxlength = "40">
-										<textarea id = "fieldTextArticle" placeholder = "Text of new article" maxlength = "2000"></textarea>
+										<input id = "fieldTitleArticle" type = "text" placeholder = "Title of new article" maxlength = "63">
+										<textarea id = "fieldTextArticle" placeholder = "Text of new article" maxlength = "2047"></textarea>
 									</td>
 									<td>
 										<input id = "buttonAdd" class = "buttonArticle" type="button" value = "New Article">
@@ -114,6 +115,9 @@
 						<!--<img class = "buttonNextIcon" alt=">">-->
 					</button>
 			</div>
+			
+			<div id = "fullArticleContainer"></div>
+	
 		</div>
 		
 		<div class = "footer">
@@ -133,9 +137,7 @@
 		<div id = "js">
 			
 			<script src = "./script/article.js"></script>
-			<!--<script src = "./script/articleForm.js"></script>
-			<script src = "./script/greeting.js"></script>
-			<script src = "./script/uploadImage.js"></script>-->
+			<!--<script src = "./script/greeting.js"></script>-->
 			<script src = "./script/headerBackImages.js"></script>
 		</div>
 			

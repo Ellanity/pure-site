@@ -194,13 +194,50 @@ function textProcessing(form_text)
 }
 
 /**/
+let fullArticleContainer = document.getElementById("fullArticleContainer");
+let fullArticleId;
+let deletedArticleId;
 function displayArticleFull(article)
 {
-	
+	if(article.id != deletedArticleId)
+	{
+		fullArticleId = article.id;
+		fullArticleContainer.innerHTML = "";
+		let fullArticleObj = document.createElement('div');
+		fullArticleObj.className = "fullArticle";
+		
+		let html = (
+		"<div class = \"fullArticleTitle\" >" + article.titleArticle + "</div>" + 
+		"<div class = \"fullArticleText\"  >" + article.textArticle  + "</div>" + 
+		"<div class = \"fullArticleImageContainer\">"
+		);
+		for (imageNum = 0; imageNum < article.imageArticle.length; imageNum++)
+		{
+			html += ("<img class = \"fullArticleImage\" id = \"fullArticleImage-" + imageNum + "\">"); 
+		}
+		html += "</div>";
+		
+		fullArticleObj.innerHTML = (html);
+		fullArticleContainer.append(fullArticleObj);
+		
+		for (imageNum = 0; imageNum < article.imageArticle.length; imageNum++)
+		{
+			let id = ("fullArticleImage-" + imageNum);
+			let fileReader = new FileReader();
+			fileReader.readAsDataURL(article.imageArticle[imageNum]);
+			fileReader.onload = function(event)
+			{
+				let img = document.getElementById(id);
+				img.src = event.target.result;
+			}
+		}
+	}
+	else
+		deletedArticleId = -1;
 }
 
 function deleteArticle(article)
-{
+{	
 	if(confirm("Are you sure, you want delete this post?")){
 		id = article.id;
 		let articleArrayNew = new Array;
@@ -214,6 +251,12 @@ function deleteArticle(article)
 		}
 		articleQuantity--;
 
+		if(fullArticleId == id)
+			fullArticleContainer.innerHTML = "";
+		if(fullArticleId  > id)
+			fullArticleId--;
+		deletedArticleId = id;
+				
 		articleArray.splice(0, articleArray.length);
 		for(let articleNum = 0; articleNum < articleQuantity; articleNum++)
 		{
@@ -224,6 +267,7 @@ function deleteArticle(article)
 		{
 			articleArray[articleNum].id = articleNum;
 		}
+		
 		displayShortArticle();
 	}
 }
@@ -278,10 +322,11 @@ function createArticleShort(article)
 		
 	let container = document.getElementById(("articlesContainer-" + article.container));
 	container.prepend(articleObj);
+	
+	articleObj.addEventListener('click', function(){displayArticleFull(article);});
 
 	del = document.getElementById(("articleShortDel-" + article.id));
-	
-	del.addEventListener('click', function(){deleteArticle(article)});
+	del.addEventListener('click', function(){deleteArticle(article);});
 }
 
 /*start this func if user want to create new article*/
