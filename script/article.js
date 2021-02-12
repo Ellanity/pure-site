@@ -192,11 +192,16 @@ function textProcessing(form_text)
     let new_pattern = form_text.replace(/\ {2,}/g, ' ').replace(/(\r\n|\r|\n){2,}/g, "<br><br>").replace(/(\r\n|\r|\n)/g, "<br>").split('<br><br>').join ("\n\n");
 	return new_pattern;
 }
-
-/**/
+/*
+*/
+/*
+*/
+/*Full article*/
 let fullArticleContainer = document.getElementById("fullArticleContainer");
 let fullArticleId;
 let deletedArticleId;
+let pageFA = 0;
+
 function displayArticleFull(article)
 {
 	if(article.id != deletedArticleId)
@@ -209,32 +214,100 @@ function displayArticleFull(article)
 		let html = (
 		"<div class = \"fullArticleTitle\" >" + article.titleArticle + "</div>" + 
 		"<div class = \"fullArticleText\"  >" + article.textArticle  + "</div>" + 
-		"<div class = \"fullArticleImageContainer\">"
+		"<div class = \"fullArticleImageContainer\">" + 
+		"<div id = \"fullArticleButLeft\"></div>" +
+		"<div id = \"fullArticleButRight\"></div>"
 		);
 		for (imageNum = 0; imageNum < article.imageArticle.length; imageNum++)
 		{
-			html += ("<img class = \"fullArticleImage\" id = \"fullArticleImage-" + imageNum + "\">"); 
-		}
+			html += ("<div class = \"fullArticleImage\" id = \"fullArticleImage-" + imageNum + "\"></div>");
+			}
+		
 		html += "</div>";
 		
 		fullArticleObj.innerHTML = (html);
 		fullArticleContainer.append(fullArticleObj);
 		
-		for (imageNum = 0; imageNum < article.imageArticle.length; imageNum++)
+		if (article.imageArticle.length > 0)
 		{
-			let id = ("fullArticleImage-" + imageNum);
-			let fileReader = new FileReader();
-			fileReader.readAsDataURL(article.imageArticle[imageNum]);
-			fileReader.onload = function(event)
+			for (imageNum = 0; imageNum < article.imageArticle.length; imageNum++)
 			{
-				let img = document.getElementById(id);
-				img.src = event.target.result;
+				let id = ("fullArticleImage-" + imageNum);
+				let fileReader = new FileReader();
+				fileReader.readAsDataURL(article.imageArticle[imageNum]);
+				fileReader.onload = function(event)
+				{
+					let img = document.getElementById(id);
+					img.style.content = "url(" + event.target.result + ")";
+				}
 			}
+			
+			let leftBut  = document.getElementById("fullArticleButLeft");
+			let rightBut = document.getElementById("fullArticleButRight");
+			pageFA = 0;
+			
+			leftBut.onclick = leftButFA;
+			rightBut.onclick = rightButFA;
+			
+			if (article.imageArticle.length < 2)
+				rightBut.style.display = 'none';
+			leftBut.style.display = 'none';
 		}
 	}
 	else
 		deletedArticleId = -1;
 }
+
+function rightButFA()
+{
+	let leftBut = document.getElementById("fullArticleButLeft");
+	let rightBut = document.getElementById("fullArticleButRight");
+	let imagesFA = document.querySelectorAll(".fullArticleImage");
+	
+	let container = document.querySelectorAll(".fullArticleImageContainer");
+	let width = container[0].offsetWidth;
+	
+	for (let imageNum = 0; imageNum < imagesFA.length; imageNum++)
+	{
+		let posPx = imagesFA[imageNum].style.left;
+		let pos = posPx.replace(/px/, "");
+		if(posPx == "")
+			pos = 0;
+		imagesFA[imageNum].style.left = (parseInt(pos, 10) - width) + 'px';	
+	}
+	pageFA++;
+	if (pageFA >= imagesFA.length - 1)
+		rightBut.style.display = 'none';
+	if (pageFA > 0)
+		leftBut.style.display = '';
+}
+
+function leftButFA()
+{
+	let leftBut = document.getElementById("fullArticleButLeft");
+	let rightBut = document.getElementById("fullArticleButRight");
+	let imagesFA = document.querySelectorAll(".fullArticleImage");
+	
+	let container = document.querySelectorAll(".fullArticleImageContainer");
+	let width = container[0].offsetWidth;
+	
+	for (let imageNum = 0; imageNum < imagesFA.length; imageNum++)
+	{
+		let posPx = imagesFA[imageNum].style.left;
+		let pos = posPx.replace(/px/, "");
+		if(posPx == "")
+			pos = 0;
+		imagesFA[imageNum].style.left = (parseInt(pos, 10) + width) + 'px';
+	}
+	pageFA--;
+	if(pageFA <= 0)
+		leftBut.style.display = 'none';
+	if(pageFA < imagesFA.length)
+		rightBut.style.display = '';
+}
+
+
+
 
 function deleteArticle(article)
 {	
@@ -381,7 +454,8 @@ function displayShortArticle()
 }
 
 
-function nextPage(){
+function nextPage()
+{
 	let width = articleList.offsetWidth;
 	let containers = document.querySelectorAll(".articlesContainer");
 	for (let containerNum = 0; containerNum < containers.length; containerNum++)
@@ -399,7 +473,8 @@ function nextPage(){
 		buttonPrevious.style.display = '';
 }
 
-function previousPage(){
+function previousPage()
+{
 	let width = articleList.offsetWidth;
 	let containers = document.querySelectorAll(".articlesContainer");
 	for (let containerNum = 0; containerNum < containers.length; containerNum++)
